@@ -16,14 +16,16 @@ moduleForComponent('validated-input', 'Integration | Component | validated input
 //   assert.equal(this.$().text().trim(), '');
 
 //   // Template block usage:
-//   this.render(hbs`
-// 	      {{#validated-input}}
-// 	      template block text
-// 	      {{/validated-input}}
-// 	      `);
 
 // 	      assert.equal(this.$().text().trim(), 'template block text');
 // });
+
+
+test("it renders the block and doesn't render the default input",function(assert){
+  this.render(hbs`{{#validated-input}}template block text{{/validated-input}}`);
+  let element = this.$();
+  assert.equal(element.text().trim(),"template block text");
+});
 
 test("it includes a label when label-text is provided as an attr",function(assert){
   let labelText = faker.lorem.word();

@@ -3,9 +3,16 @@
     {{label-text}}
   </label>
 {{/if}}
-{{input type=type class=input-classes value=(get changeset propertyName)  update=(action (mut (get changeset propertyName)))}}
-
-{{#if (get changeset.error propertyName)}}
-<span class="error-message">{{get (get changeset.error propertyName) "validation"}}</span>
+{{#if hasBlock}}
+  {{yield (action "blurred") changeset}}
+{{else}}
+{{input type=type class=input-classes value=(get changeset propertyName)  focus-out="blurred" update=(action (mut (get changeset propertyName)))}}
 {{/if}}
-{{yield}}
+
+
+
+{{#if isBlurred}}
+  {{#if (get changeset.error propertyName)}}
+  <span class="error-message">{{get (get changeset.error propertyName) "validation"}}</span>
+  {{/if}}
+{{/if}}

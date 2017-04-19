@@ -2,7 +2,7 @@ import Ember from 'ember';
 import layout from '../templates/components/validated-input';
 import config from "ember-get-config";
 
-const {Component,computed} = Ember;
+const {set,Component,computed} = Ember;
 export default Component.extend({
   layout,
   classNames: ["validated-input-group"],
@@ -17,11 +17,18 @@ export default Component.extend({
     return result.join(" ");
   }),
   isUsingBootstrap: computed(function(){
-    if(config["validations-template-helpers"] === undefined || config["validations-template-helpers"]["is-using-bootstrap"] === undefined){
+    let settings = config["validations-template-helpers"];
+    if(settings === undefined || settings["is-using-bootstrap"] === undefined){
       return false;
     }
     let setting = config["validations-template-helpers"]["is-using-bootstrap"];
     return setting;
   }),
+  actions:{
+    blurred(){
+      this.get('changeset').validate();
+      set(this,"isBlurred",true);
+    }
+  }
 
 });

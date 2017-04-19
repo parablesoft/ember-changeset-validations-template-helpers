@@ -1,6 +1,11 @@
 {
   "name": "ember-changeset-validations-template-helpers",
   "dependencies": {
-    "Faker": "^4.1.0"
+    "Faker": "^4.1.0",
+    "ember": "components/ember#lts-2-8",
+    "selectize": "miguelcobain/selectize.js#master"
+  },
+  "resolutions": {
+    "ember": "lts-2-8"
   }
 }
