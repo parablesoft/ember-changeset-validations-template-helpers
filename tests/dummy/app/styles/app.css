@@ -1,0 +1,8 @@
+.error-message{
+  color:red;
+}
+
+.validated-input-group-error{
+  padding:20px;
+  background-color:yellow;
+}

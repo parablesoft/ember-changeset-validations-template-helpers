@@ -69,3 +69,5 @@ test("it renders an password input",function(assert){
   let element = this.$().find("input[type='password']");
   assert.equal(element.length,1);
 });
+
+

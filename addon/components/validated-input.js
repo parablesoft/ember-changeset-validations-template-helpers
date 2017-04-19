@@ -3,10 +3,19 @@ import layout from '../templates/components/validated-input';
 import config from "ember-get-config";
 
 const {set,Component,computed} = Ember;
+const {and} = computed;
+
 export default Component.extend({
   layout,
   classNames: ["validated-input-group"],
-  classNameBindings: ["isUsingBootstrap:form-group"],
+  classNameBindings: ["isUsingBootstrap:form-group","isInvalid:validated-input-group-error"],
+  isInvalid: and("isValidationFailing","isBlurred"),
+  isValidationFailing: computed("changeset.error",function(){
+    if(this.get("changeset.error") === undefined){
+      return false;
+    }
+    return Object.keys(this.get("changeset.error")).includes(this.get("propertyName"))
+  }),
   "input-classes": computed("isUsingBootstrap","input-class",function(){
     let properties = this.getProperties("isUsingBootstrap","input-class");
     let result = [];

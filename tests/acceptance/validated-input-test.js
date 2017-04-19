@@ -16,7 +16,10 @@ test('shows validation message for author after blurring it', function(assert) {
   triggerEvent('input:first', 'blur')
   andThen(function() {
     let errorMessage = find("input:first").siblings(".error-message");
+    let errorContainer = find(".validated-input-group-error")
     assert.equal(errorMessage.length,1);
+    assert.equal(errorContainer.length,1);
+
   });
 });
 
