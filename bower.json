@@ -1,4 +1,6 @@
 {
   "name": "ember-changeset-validations-template-helpers",
-  "dependencies": {}
+  "dependencies": {
+    "Faker": "^4.1.0"
+  }
 }
