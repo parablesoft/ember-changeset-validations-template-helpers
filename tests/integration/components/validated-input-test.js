@@ -55,7 +55,15 @@ test("it can set the class of the input",function(assert){
 });
 
 
-// test("it includes an input",function(assert){
-//   let element = this.$().find("element");
-//   assert.equal(element.length,1);
-// });
+test("it renders an input type text by default",function(assert){
+  this.render(hbs`{{validated-input}}`);
+  let element = this.$().find("input");
+  assert.equal(element.length,1);
+});
+
+
+test("it renders an password input",function(assert){
+  this.render(hbs`{{validated-input type="password"}}`);
+  let element = this.$().find("input[type='password']");
+  assert.equal(element.length,1);
+});

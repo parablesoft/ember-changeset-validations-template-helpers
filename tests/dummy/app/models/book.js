@@ -6,4 +6,5 @@ export default Model.extend({
   title: attr("string"),
   author: attr("string"),
   notes: attr('string'),
+  password: attr("string")
 });

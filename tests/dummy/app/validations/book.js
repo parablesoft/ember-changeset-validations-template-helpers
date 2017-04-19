@@ -4,4 +4,5 @@ import {
 export default {
   title: validatePresence(true),
   author: validatePresence(true),
+  password: validatePresence(true),
 };

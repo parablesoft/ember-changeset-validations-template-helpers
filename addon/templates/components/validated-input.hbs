@@ -3,7 +3,7 @@
     {{label-text}}
   </label>
 {{/if}}
-{{input class=input-classes value=(get changeset propertyName)  update=(action (mut (get changeset propertyName)))}}
+{{input type=type class=input-classes value=(get changeset propertyName)  update=(action (mut (get changeset propertyName)))}}
 
 {{#if (get changeset.error propertyName)}}
 <span class="error-message">{{get (get changeset.error propertyName) "validation"}}</span>
