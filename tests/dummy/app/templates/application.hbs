@@ -1,5 +1,5 @@
-{{!-- The following component displays Ember's default welcome message. --}}
-{{welcome-page}}
-{{!-- Feel free to remove this! --}}
+{{#with (changeset model BookValidations) as |changeset|}}
+{{validated-input propertyName="author" changeset=changeset label-text="Author"}}<br/>
+{{validated-input label-text="Title"}}<br/>
 
-{{outlet}}
+{{/with}}
