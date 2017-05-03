@@ -35,8 +35,9 @@ export default Component.extend({
   }),
   actions:{
     blurred(){
-      this.get('changeset').validate();
-      set(this,"isBlurred",true);
+      this.get('changeset').validate().then(()=>{
+	set(this,"isBlurred",true);
+      });
     }
   }
 
