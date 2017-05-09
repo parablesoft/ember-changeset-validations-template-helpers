@@ -41,7 +41,7 @@ export default Controller.extend({
 });
 ```
 
-####Simple input replacement
+#### Simple input replacement
 
 For a simple replacement for `{{input}}`
 
@@ -53,12 +53,12 @@ In the context of the `ember-changeset` usage above:
 ```
 
 
-####Advanced Usage
+#### Advanced Usage
 
 In the context of the `ember-changeset` usage above:
 
 
-#####Use with [`ember-cli-selectize`](https://github.com/miguelcobain/ember-cli-selectize)
+##### Use with [`ember-cli-selectize`](https://github.com/miguelcobain/ember-cli-selectize)
 
 
 ```hbs
