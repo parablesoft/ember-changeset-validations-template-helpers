@@ -1,6 +1,6 @@
 {
   "name": "ember-changeset-validations-template-helpers",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A template helper for ember-changeset-validations",
   "keywords": [
     "ember-addon"
@@ -9,7 +9,7 @@
   "author": "Vic Amuso <vic@parablesoft.com>",
   "repository": "https://github.com/parablesoft/ember-changeset-validations-template-helpers",
   "bugs": "https://github.com/parablesoft/ember-changeset-validations-template-helpers/issues",
-  "homepage": "https://github.com/DockYard/ember-changeset-validations",
+  "homepage": "https://github.com/parablesoft/ember-changeset-validations-template-helpers",
   "directories": {
     "doc": "doc",
     "test": "tests"

@@ -1,31 +1,28 @@
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
+import wait from 'ember-test-helpers/wait';
 import faker from 'faker';
 
 moduleForComponent('validated-input', 'Integration | Component | validated input', {
   integration: true
 });
 
-// test('it renders', function(assert) {
-
-//   // Set any properties with this.set('myProperty', 'value');
-//   // Handle any actions with this.on('myAction', function(val) { ... });
-
-//   this.render(hbs`{{validated-input}}`);
-
-//   assert.equal(this.$().text().trim(), '');
-
-//   // Template block usage:
-
-// 	      assert.equal(this.$().text().trim(), 'template block text');
-// });
-
-
 test("it renders the block and doesn't render the default input",function(assert){
   this.render(hbs`{{#validated-input}}template block text{{/validated-input}}`);
   let element = this.$();
   assert.equal(element.text().trim(),"template block text");
 });
+
+
+test("it sets focus on the input if auto-focus is set to true",function(assert){
+  this.render(hbs`{{validated-input auto-focus=true}}`);
+  return wait()
+    .then(() => {
+      let element = this.$().find("input:first");
+      assert.equal(element[0],document.activeElement);
+    });
+});
+
 
 test("it includes a label when label-text is provided as an attr",function(assert){
   let labelText = faker.lorem.word();

@@ -26,6 +26,7 @@ test('shows validation message for author after blurring it', function(assert) {
 test("allows another component/addon to be passed in instead of default input",function(assert){
   visit("/selectize_example");
   triggerEvent('input:first', 'blur')
+  
   andThen(function() {
     let errorMessage = find("input:first").siblings(".error-message");
     assert.equal(errorMessage.length,1);

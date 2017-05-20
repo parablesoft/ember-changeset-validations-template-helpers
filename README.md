@@ -52,6 +52,11 @@ In the context of the `ember-changeset` usage above:
 {{validated-input propertyName="author" changeset=changeset label-text="Author"}}<br/>
 ```
 
+##### Attributes
+
+* auto-focus - Default is false, when set to true, it will set focus on the input.
+
+
 
 ####Advanced Usage
 

@@ -2,20 +2,41 @@ import Ember from 'ember';
 import layout from '../templates/components/validated-input';
 import config from "ember-get-config";
 
-const {set,Component,computed} = Ember;
+const {get,set,Component,computed} = Ember;
 const {and} = computed;
 
 export default Component.extend({
   layout,
   classNames: ["validated-input-group"],
   classNameBindings: ["isUsingBootstrap:form-group","isInvalid:validated-input-group-error"],
+  "auto-focus": false,
+  "property-name": Ember.computed.alias("propertyName"),
   isInvalid: and("isValidationFailing","isBlurred"),
   isValidationFailing: computed("changeset.error",function(){
-    if(this.get("changeset.error") === undefined){
+    let changesetError = this.get("changeset.error");
+    let propertyName = this.get("property-name");
+    
+    if(changesetError === undefined) {
       return false;
     }
-    return Object.keys(this.get("changeset.error")).includes(this.get("propertyName"))
+
+    let errorKeys = Object.keys(changesetError);
+
+    if(errorKeys === undefined){
+      return false;
+    }
+    return errorKeys.indexOf(propertyName) != -1;
   }),
+  didInsertElement(){
+    this._super(...arguments);
+    let autoFocus = get(this,"auto-focus");
+    if(autoFocus){
+      Ember.run.scheduleOnce('afterRender', this, '_autofocus');
+    }
+  },
+  _autofocus(){
+    this.$("input:first").focus();
+  },
   "input-classes": computed("isUsingBootstrap","input-class",function(){
     let properties = this.getProperties("isUsingBootstrap","input-class");
     let result = [];

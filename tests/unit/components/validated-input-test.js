@@ -14,6 +14,12 @@ test('it applies form-group to classNames when isUsingBootstrap is true', functi
 });
 
 
+test("it sets auto-focus to false by default", function(assert) {
+  let component = this.subject();
+  assert.equal(component.get("auto-focus"),false);
+});
+
+
 test('it applies form-control to the input when this is true', function(assert) {
   let component = this.subject();
   component.set("isUsingBootstrap",true);
