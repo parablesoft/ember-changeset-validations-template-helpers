@@ -1,13 +1,15 @@
 {
   "name": "ember-changeset-validations-template-helpers",
-  "version": "0.0.0",
-  "description": "The default blueprint for ember-cli addons.",
+  "version": "0.0.6",
+  "description": "A template helper for ember-changeset-validations",
   "keywords": [
     "ember-addon"
   ],
-  "repository": "",
+  "repository": "https://github.com/parablesoft/ember-changeset-validations-template-helpers",
+  "bugs": "https://github.com/parablesoft/ember-changeset-validations-template-helpers/issues",
+  "homepage": "https://github.com/parablesoft/ember-changeset-validations-template-helpers",
   "license": "MIT",
-  "author": "",
+  "author": "Vic Amuso <vic@parablesoft.com>",
   "directories": {
     "doc": "doc",
     "test": "tests"
