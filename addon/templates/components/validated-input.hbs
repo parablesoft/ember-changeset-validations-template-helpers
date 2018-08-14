@@ -6,13 +6,11 @@
 {{#if hasBlock}}
   {{yield (action "blurred") changeset}}
 {{else}}
-{{input autofocus=auto-focus enter=this.attrs.onEnter type=type class=input-classes value=(get changeset propertyName)  focus-out="blurred" update=(action (mut (get changeset propertyName)))}}
+  {{input autofocus=auto-focus enter=this.attrs.onEnter type=type class=input-classes value=(get changeset propertyName)  focus-out="blurred" update=(action (mut (get changeset propertyName)))}}
 {{/if}}
-
-
 
 {{#if isBlurred}}
   {{#if (get changeset.error propertyName)}}
-  <span class="error-message">{{get (get changeset.error propertyName) "validation"}}</span>
+    <span class="error-message">{{get (get changeset.error propertyName) "validation"}}</span>
   {{/if}}
 {{/if}}

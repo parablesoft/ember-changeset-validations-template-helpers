@@ -1,11 +1,27 @@
 {{#with (changeset model BookValidations) as |changeset|}}
-{{validated-input auto-focus=true property-name="author" changeset=changeset label-text="Author"}}<br/>
-{{validated-input 
-	type="password"
-	propertyName="password" changeset=changeset label-text="Password"}}<br/>
+
+	{{validated-input
+		auto-focus=true
+		property-name="author"
+		changeset=changeset
+		label-text="Author"}}
+
+	<br/>
+
+	{{validated-input
+		type="password"
+		propertyName="password"
+		changeset=changeset
+		label-text="Password"}}
+
+	<br/>
+
 	<div class="some-other-container">
-	  <label>Title</label>
-	  {{validated-input property-name="title" changeset=changeset}}
+		<label>Title</label>
+		{{validated-input
+			property-name="title"
+			changeset=changeset
+		}}
 	</div>
 
 {{/with}}

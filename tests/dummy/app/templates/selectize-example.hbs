@@ -1,18 +1,19 @@
 {{#with (changeset model BookValidations) as |changeset|}}
 
-{{validated-input label-text="Foo" property-name="title" changeset=changeset}}
-<hr>
-{{input}}
-<hr/>
-{{#validated-input 
+  {{validated-input label-text="Foo" property-name="title" changeset=changeset}}
+  <hr>
+  {{input}}
+  <hr/>
+  {{#validated-input
 property-name="author" changeset=changeset label-text="Author" as |blurred ch|}}
 
-  {{ember-selectize
+    {{ember-selectize
     content=authors
     on-blur=blurred
     optionValuePath="content.value"
     optionLabelPath="content.name"
     value=ch.author
     placeholder="Select an author" }}
-{{/validated-input}}
+
+  {{/validated-input}}
 {{/with}}
