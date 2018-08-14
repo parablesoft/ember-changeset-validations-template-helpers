@@ -1,21 +1,23 @@
-import Ember from "ember";
+import { A } from '@ember/array';
+import Controller from '@ember/controller';
 import BookValidations from "../validations/book";
 
-const {Controller} = Ember;
 export default Controller.extend({
   BookValidations,
-  authors: Ember.A([{
-    name: "John",
-    value: "john"
-  },
-  {
-    name: "Paul",
-    value: "paul"
-  }]),
-  actions:{
-    foo(){
-     alert("gone"); 
+  authors: A([{
+      name: "John",
+      value: "john"
+    },
+    {
+      name: "Paul",
+      value: "paul"
+    }
+  ]),
+
+  actions: {
+    foo() {
+      alert("gone");
     }
   }
-  
+
 });

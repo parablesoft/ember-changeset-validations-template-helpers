@@ -1,34 +1,47 @@
-import { moduleForComponent, test } from 'ember-qunit';
+import { module, test } from 'qunit';
+import { setupRenderingTest } from 'ember-qunit';
+import hbs from 'htmlbars-inline-precompile';
 
-moduleForComponent('validated-input', 'Unit | Component | validated input', {
-  // Specify the other units that are required for this test
-  // needs: ['component:foo', 'helper:bar'],
-  unit: true
+module('Unit | Component | validated input', function (hooks) {
+  setupRenderingTest(hooks);
+
+  test('it applies form-group to classNames when isUsingBootstrap is true', async function (assert) {
+
+    await this.render(hbs `
+      {{#validated-input
+        isUsingBootstrap=true
+      }}
+        test
+      {{/validated-input}}
+    `);
+
+    assert.equal(this.$('div')
+      .hasClass('form-group'), true);
+  });
+
+
+  test("it sets auto-focus to false by default", function (assert) {
+    let component = this.owner.factoryFor('component:validated-input')
+      .create();
+    assert.equal(component.get("auto-focus"), false);
+  });
+
+
+  test('it applies form-control to the input when this is true', async function (assert) {
+
+    await this.render(hbs `
+      {{validated-input
+        isUsingBootstrap=true
+      }}
+    `);
+
+    assert.equal(this.$("input")
+      .hasClass('form-control'), true);
+  });
+
+  test("isUsingBootstrap is false, by default", function (assert) {
+    let component = this.owner.factoryFor('component:validated-input')
+      .create();
+    assert.equal(component.get("isUsingBootstrap"), false);
+  });
 });
-
-test('it applies form-group to classNames when isUsingBootstrap is true', function(assert) {
-  let component = this.subject();
-  component.set("isUsingBootstrap",true);
-  this.render();
-  assert.equal(this.$().hasClass('form-group'),true);
-});
-
-
-test("it sets auto-focus to false by default", function(assert) {
-  let component = this.subject();
-  assert.equal(component.get("auto-focus"),false);
-});
-
-
-test('it applies form-control to the input when this is true', function(assert) {
-  let component = this.subject();
-  component.set("isUsingBootstrap",true);
-  this.render();
-  assert.equal(this.$().find("input").hasClass('form-control'),true);
-});
-
-test("isUsingBootstrap is false, by default",function(assert){
-  let component = this.subject();
-  assert.equal(component.get("isUsingBootstrap"),false);
-});
-
