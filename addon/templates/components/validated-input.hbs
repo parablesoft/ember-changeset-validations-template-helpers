@@ -6,7 +6,7 @@
 {{#if hasBlock}}
   {{yield (action "blurred") changeset}}
 {{else}}
-{{input autofocus=auto-focus enter=this.attrs.onEnter type=type class=input-classes value=(get changeset propertyName)  focus-out="blurred" update=(action (mut (get changeset propertyName)))}}
+{{input autofocus=auto-focus enter=this.attrs.onEnter type=type class=input-classes value=(get changeset propertyName)  focus-out=(action "blurred") update=(action (mut (get changeset propertyName)))}}
 {{/if}}
 
 
