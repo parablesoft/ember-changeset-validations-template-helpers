@@ -1,6 +1,6 @@
 {
   "name": "ember-changeset-validations-template-helpers",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "A template helper for ember-changeset-validations",
   "keywords": [
     "ember-addon"
